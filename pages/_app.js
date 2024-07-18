@@ -15,6 +15,7 @@ function App({ Component, pageProps }) {
       <Head>
         <title>Hackatweet</title>
       </Head>
+     
       <Component {...pageProps} />
     </Provider>
   );
