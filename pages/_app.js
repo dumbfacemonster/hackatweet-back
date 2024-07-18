@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import Head from 'next/head';
+import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import hashtags from '../reducers/hashtags';
 import user from '../reducers/user';
@@ -14,7 +15,7 @@ function App({ Component, pageProps }) {
       <Head>
         <title>Hackatweet</title>
       </Head>
-      <Header />
+     
       <Component {...pageProps} />
     </Provider>
   );
