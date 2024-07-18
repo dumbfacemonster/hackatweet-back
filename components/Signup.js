@@ -2,7 +2,7 @@ import styles from '../styles/Signup.module.css';
 import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from '../reducers/user';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 function Signup({isOpen, onClose, children}) {
 

@@ -6,11 +6,9 @@ import Signin from './Signin';
 
 function Login() {
    
-    // const signup = <></>
 
-    // const handleSignup = () => {
-    //     signup =  <Signup />
-    // }
+    const [isSignupOpen, setIsSignupOpen] = useState(false); 
+    
     
 
     return (
@@ -20,7 +18,7 @@ function Login() {
            <img src="logo.svg" alt="logo" className={styles.logo} />
            <h1 className={styles.title}>See what's happening</h1>
            <h3 className={styles.join}>Join Hackatweet today</h3>
-           <button className={styles.signup} id="Signup" onClick={() => handleSignup()}>Sign up</button>
+           <button className={styles.signup} id="Signup" onClick={() => setIsSignupOpen(!isSignupOpen)}>Sign up</button>
            <h4>already have an account?</h4>
            <button className={styles.signin} id="signin" onClick={() => handleSignin()}>Sign in</button>
            </div>
