@@ -24,7 +24,7 @@ function Login() {
            <h4>already have an account?</h4>
            <button className={styles.signin} id="signin" onClick={() => handleSignin()}>Sign in</button>
            </div>
-           {/* <Signup/> */}
+           <Signup/>
         </div>
     );
 }
