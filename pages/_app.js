@@ -1,6 +1,5 @@
 import '../styles/globals.css';
 import Head from 'next/head';
-import { configureStore } from '@reduxjs/toolkit';
 import hashtags from '../reducers/hashtags';
 import user from '../reducers/user';
 import { Provider } from 'react-redux';
