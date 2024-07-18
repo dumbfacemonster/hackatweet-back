@@ -1,0 +1,39 @@
+.registerSection {
+    height: 50vh;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-color: 1px solid red;
+    background-color:#161d27;
+    color: white; 
+}
+.logo {
+    height: 5vh;
+    width: 5vw;
+    filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(175deg) brightness(108%) contrast(101%);
+    transform: rotate(180deg);
+  }
+
+  .create {
+    font-family: 'Mont Heavy DEMO';
+    font-size: 25px;
+    letter-spacing: 2px; 
+  }
+
+  .name{
+    height: 4vh;
+    width: 10vw;
+    background-color: #161d27;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid white;
+  }
+
+  .sign{
+    height: 4vh;
+    width: 10vw;
+    background-color: white;
+    color: #161d27;
+    border-radius: 35px;
+}	
