@@ -1,0 +1,62 @@
+.login{
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    align-items: top;
+    flex-direction: row;
+    border-color: 1px solid red;
+    background-color:#161d27;
+    color: white; 
+}
+
+.background {
+    height: 100vh;
+    width: 40vw;
+}
+
+.container {
+    height: 100vh;
+    width: 25vw;
+    display: flex;
+    align-items: top;
+    flex-direction: column;
+    border-color: 1px solid red;
+    margin-top: 4vh;
+    margin-left: 2vw;
+}
+
+.logo {
+    height: 5vh;
+    width: 5vw;
+    filter: invert(100%) sepia(0%) saturate(2%) hue-rotate(175deg) brightness(108%) contrast(101%);
+    transform: rotate(180deg);
+  }
+
+.title {
+    font-family: 'Mont Heavy DEMO';
+    font-size: 80px;
+    letter-spacing: 2px; 
+}
+
+.join {
+    font-family: 'Mont Heavy DEMO';
+    font-size: 30px;
+    letter-spacing: 2px; 
+}
+
+.signup{
+    height: 4vh;
+    width: 10vw;
+    background-color: #0d8efa;
+    color: white;
+    border-radius: 35px;
+}	
+
+.signin{
+    height: 4vh;
+    width: 10vw;
+    background-color: #161d27;
+    color: #0d8efa;
+    border-radius: 35px;
+    border: 1px solid white;
+}	
