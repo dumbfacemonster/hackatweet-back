@@ -51,7 +51,8 @@ const trends = hashtags.map((data, i) => {
             </div>
         </div>
         <div className={styles.tweets}>
-
+          <h4>Home</h4>
+        <LastTweets />
         </div>
         <div className={styles.trends}>
           <h4>Trends</h4>
