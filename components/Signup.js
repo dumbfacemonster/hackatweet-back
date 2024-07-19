@@ -2,7 +2,6 @@ import styles from '../styles/Signup.module.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../reducers/user';
-import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useRouter } from 'next/router';

@@ -1,4 +1,61 @@
-.count {
-    color: white;
+.container{
+    height: 100vh;
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
 }
 
+.writeTweet {
+    height: 10vh;
+    width: 30vw;
+    display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   margin-left: auto;
+   margin-right:auto;
+   margin-bottom: 2vh;
+   
+
+}    
+.separate{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.411);
+}
+.tweetInput{
+    max-height: 10vh;
+    width: 30vw;
+    border:none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.411);
+    font-size: 15px;
+    background-color: #161d27;
+}
+
+.underTweet {
+    display: flex;
+    justify-content: right;
+    display: flex;
+    align-items: center;
+}
+
+.count {
+    color: white;
+    font-size: 15px;
+    margin-right: 1vw;
+    font-size: 12px;
+}
+
+.tweetBtn {
+    height: 3vh;
+    width: 5vw;
+    background-color: #0d8efa;
+    color: white;
+    border-radius: 35px;
+}	 
+
+.scrollbar {
+    max-height: 81vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    scrollbar-color:  rgb(22, 29, 39)  rgba(22, 29, 39);
+  /* scrollbar-width: thin; */
+}

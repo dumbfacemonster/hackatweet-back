@@ -14,7 +14,7 @@ function Tweet(props) {
 			<div className={styles.tweetUser}>
                 <img className={styles.profilePic} src="profile-pic.png" alt='Profile picture' />
                 <h3 className={styles.name}>{props.name}</h3>
-                <span className={styles.username}>{props.username}</span> • <span className={styles.date}>{props.creationDate}</span>
+                <span className={styles.username}>@{props.username} • </span ><span className={styles.username}>{props.creationDate}</span>
             </div>
             <div className={styles.tweetContent}>
                 {props.content}

@@ -43,15 +43,15 @@ const trends = hashtags.map((data, i) => {
               <div className={styles.userInfos} >
                   <img className={styles.profilePic} src="profile-pic.png" alt='Profile picture' />
                   <div className={styles.userNames}>
-                    <p>{user.name}</p>
-                    <p>{user.username}</p>
+                    <p className={styles.typoname}>{user.name}</p>
+                    <p className={styles.typo}>{user.username}</p>
                   </div>
               </div>
               <button className={styles.logoutBtn} onClick={() => logout()}>Logout</button>
             </div>
         </div>
         <div className={styles.tweets}>
-          <h4>Home</h4>
+          <h4 className={styles.homeh4}>Home</h4>
         <LastTweets />
         </div>
         <div className={styles.trends}>
