@@ -1,6 +1,6 @@
 import styles from '../styles/LastTweets.module.css';
 import Tweet from './Tweet';
-import { addHashtag } from '../reducers/hashtags';
+import { addHashtag, deleteHashtag, incrementHashtag, decrementHashtag } from '../reducers/hashtags';
 import { addUser } from '../reducers/user'
 import { useSelector, useDispatch } from 'react-redux';
 import {useEffect, useState} from 'react';
@@ -8,8 +8,13 @@ import { removeUser } from '../reducers/user';
 import Link from 'next/link';
 
 function LastTweets() {
+
+const dispatch = useDispatch();
+
 // récupère les infos du user
 const user = useSelector((state) => state.user.value);
+//récupère les infos du reducer hashtag
+const hashtags = useSelector((state) => state.hashtags.value);
 
 // enregistre champ nouveau tweet
 const [newTweet, setNewTweet] = useState('');
@@ -27,7 +32,7 @@ useEffect(() => {
     })
 }, [])
 
-// poste le nouveau tweet en BDD
+// poste le nouveau tweet en BDD + màj reducer hashtags
 const handleTweetClick = () => {
     const sentTweet = {
         name: user.name,
@@ -41,23 +46,38 @@ const handleTweetClick = () => {
 		body: JSON.stringify(sentTweet)
     })
     .then(resp => resp.json())
-    .then(() => {
-        console.log('Tweet sent !');
+    .then((data) => {
+        if (data.result) {
+        console.log(data);
+        setAllTweets([...allTweets, data.tweet]);
         setNewTweet('');
+        const index = hashtags.findIndex(e => e.hashtag === data.hashtag);
+        if (index >= 0) {
+            dispatch(incrementHashtag(index));
+        }
+        else {
+            dispatch(addHashtag(data.hashtag));
+        };  
+        }
 })
 
 }
 
-const tweets = allTweets.map((data, i) => {
+console.log(allTweets)
+
+const sortedTweets = allTweets.sort((a, b) => new Date(b.creationDate) - new Date(a.creationDate));
+console.log(sortedTweets);
+
+const tweets = sortedTweets.map((data, i) => {
     return (
-        <Tweet key={i} name={data.name} username={data.username} content={data.content} hashtag={data.hashtag} date={data.creationDate} />
+        <Tweet key={i} name={data.name} username={data.username} content={data.content} hashtag={data.hashtag} date={data.creationDate} isLiked />
     )
 })
 
     return (
         <div className={styles.container}>
             <div className={styles.writeTweet}>
-            <input className={styles.tweetInput} type="text" placeholder="What's up ?" onChange={(e) => setNewTweet(e.target.value)} value={newTweet} />
+            <input maxlength='280' className={styles.tweetInput} type="text" placeholder="What's up ?" onChange={(e) => setNewTweet(e.target.value)} value={newTweet} />
             <div className={styles.underTweet}>
                 <span className={styles.count} >{newTweet.length}/280</span>
                 <button className={styles.tweetBtn} id="sendTweet" onClick={() => handleTweetClick()}>Tweet</button>
