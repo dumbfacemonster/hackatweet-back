@@ -1,4 +1,4 @@
-.login{
+.login {
     height: 100%;
     width: 100vw;
     display: flex;
@@ -60,3 +60,11 @@
     border-radius: 35px;
     border: 1px solid white;
 }	
+
+
+/* .modal {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background: rgba(22,29,39,0.5);
+} */
