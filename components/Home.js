@@ -6,22 +6,22 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeUser } from '../reducers/user';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 
 function Home() {
+//récupère les infos du user connecté
+const user = useSelector((state) => state.user.value)
+
 //récupère hashtags pour trends
 const hashtags = useSelector((state) => state.hashtags.value);
 
 const dispatch = useDispatch();
+const router = useRouter();
 
 const logout = () => {
   dispatch(removeUser());
-}
-
-//test user
-const user = {
-  name: 'Sarah',
-  username: 'monUserName',
+  router.push('/login');
 }
 
 const trends = hashtags.map((data, i) => {
