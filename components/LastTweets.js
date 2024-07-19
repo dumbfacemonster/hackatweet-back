@@ -5,7 +5,6 @@ import { addUser } from '../reducers/user'
 import { useSelector, useDispatch } from 'react-redux';
 import {useEffect, useState} from 'react';
 import { removeUser } from '../reducers/user';
-import { useState } from 'react';
 import Link from 'next/link';
 
 function LastTweets() {
@@ -14,6 +13,8 @@ const user = useSelector((state) => state.user.value);
 
 // enregistre champ nouveau tweet
 const [newTweet, setNewTweet] = useState('');
+// stocke tous les tweets de la BDD
+const [allTweets, setAllTweets] = useState([]);
 
 
 // fetch tous les tweets en BDD à l'initialisation de la page
@@ -21,7 +22,7 @@ useEffect(() => {
     fetch('http://localhost:3000/tweets')
     .then(resp => resp.json())
     .then(data => {
-        const allTweets = data.tweets;
+         setAllTweets(data.tweets);
         console.log(allTweets)
     })
 }, [])
@@ -31,13 +32,20 @@ const handleTweetClick = () => {
     const sentTweet = {
         name: user.name,
         username: user.username,
-        content:
+        content: newTweet,
+        creationDate: new Date(),
     }
     fetch('http://localhost:3000/tweets', {
         method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ username: signUpUsername, password: signUpPassword }),
-    }
+		body: JSON.stringify(sentTweet)
+    })
+    .then(resp => resp.json())
+    .then(() => {
+        console.log('Tweet sent !');
+        setNewTweet('');
+})
+
 }
 
 const tweets = allTweets.map((data, i) => {
@@ -48,15 +56,16 @@ const tweets = allTweets.map((data, i) => {
 
     return (
         <div className={styles.container}>
-            <h4>Home</h4>
             <div className={styles.writeTweet}>
-            <input type="text" placeholder="What's up ?" onChange={(e) => setNewTweet(e.target.value)} value={newTweet} />
+            <input className={styles.tweetInput} type="text" placeholder="What's up ?" onChange={(e) => setNewTweet(e.target.value)} value={newTweet} />
             <div className={styles.underTweet}>
-                <span>{newTweet.length}/280</span>
-                <button id="sendTweet" onClick={() => handleConnection()}>Tweet</button>
+                <span className={styles.count} >{newTweet.length}/280</span>
+                <button className={styles.tweetBtn} id="sendTweet" onClick={() => handleTweetClick()}>Tweet</button>
             </div>
             </div>
         {tweets}
         </div>
     )
 }
+
+export default LastTweets;
